@@ -334,7 +334,7 @@ def edit_job_role(request, id):
 # endpoint to handle update of job roles for admin
 def update_job_role(request):
     if request.method == 'POST':
-        message = "You have successfully updated your learning journey!"
+        message = "You have successfully updated a job role!"
         status = 'success'
         changed_name = False
         new_skill_lst = list(set(request.POST.getlist('assigned_skills')))
@@ -602,7 +602,6 @@ def plan_skill(request):
 
 # endpoint to handle creation of skill for admin
 def create_skill(request):
-    # return
     if request.method == 'POST':
         message = "You have successfully created a skill!"
         status = 'success'

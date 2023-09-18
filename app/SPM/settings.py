@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,7 +78,7 @@ WSGI_APPLICATION = 'SPM.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": os.environ.get("SQL_ENGINE"),
         "NAME": os.environ.get("SQL_DATABASE"),
         "USER": os.environ.get("SQL_USER"),
         "PASSWORD": os.environ.get("SQL_PASSWORD"),
@@ -88,11 +87,6 @@ DATABASES = {
     }
 }
 
-
-
-# if 'test' in sys.argv or 'test\_coverage' in sys.argv: #Covers regular testing and django-coverage
-#  DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
-#  DATABASES['default']['NAME'] = ':memory:'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
